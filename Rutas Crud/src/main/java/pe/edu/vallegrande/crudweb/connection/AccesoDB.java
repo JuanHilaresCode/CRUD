@@ -14,10 +14,11 @@ public class AccesoDB {
 		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		String docker = "15000"; // USAR EN CASO DE QUERER  USAR UN CONTENEDOR
 		String local = "1433"; // USAR EN CASO DE QUERER  USAR UNA BASE DE DATOS EN LOCAL
-	    String DB = "MovilSur"; // PONER EL NOMBRE DE LA BASE DE DATOS
-		String urlDB = "jdbc:sqlserver://localhost:"+ docker +";databaseName="+ DB +";encrypt=True;TrustServerCertificate=True;";
-		String user = "sa";
-		String pass = "Triggerdb!!!!";
+	    String DB = "db_Movil_Sur"; // PONER EL NOMBRE DE LA BASE DE DATOS
+		String server = "db_Movil_Sur.mssql.somee.com\n";
+		String urlDB = "jdbc:sqlserver://"+ server +";databaseName="+ DB +";encrypt=True;TrustServerCertificate=True;loginTimeout=30;";
+		String user = "javi_SQLLogin_1";
+		String pass = "1juuuc7vuf";
 		try {
 			Class.forName(driver).getDeclaredConstructor().newInstance();
 			cn = DriverManager.getConnection(urlDB, user, pass);

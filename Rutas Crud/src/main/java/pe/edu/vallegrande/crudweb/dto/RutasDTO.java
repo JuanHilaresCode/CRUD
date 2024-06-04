@@ -6,12 +6,11 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 public class RutasDTO {
-    private int id;
-    private String origen;
-    private String destino;
-    private String distancia;
-    private String duracion;
-    private String descripcion;
-    private String estado;
+    private int route_id;
+    private String origin;
+    private String destination;
+    private double distance;
+    private int duration_in_minutes;
+    private String description;
+    private String status;
 }
-

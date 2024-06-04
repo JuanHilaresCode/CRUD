@@ -20,7 +20,7 @@
                         <th>ORIGEN</th>
                         <th>DESTINO</th>
                         <th>DISTANCIA (KM)</th>
-                        <th>DURACION (HRS)</th>
+                        <th>DURACION (En Minutos)</th>
                         <th>DESCRIPCION</th>
                         <th>ESTADO</th>
                         <th>ACCIONES</th>
@@ -29,17 +29,17 @@
                     <tbody>
                     <c:forEach items="${eliminados}" var="ruta">
                         <tr>
-                            <td>${ruta.id}</td>
-                            <td>${ruta.origen}</td>
-                            <td>${ruta.destino}</td>
-                            <td>${ruta.distancia}</td>
-                            <td>${ruta.duracion}</td>
-                            <td>${ruta.descripcion}</td>
-                            <td>${ruta.estado}</td>
+                            <td>${ruta.route_id}</td>
+                            <td>${ruta.origin}</td>
+                            <td>${ruta.destination}</td>
+                            <td>${ruta.distance}</td>
+                            <td>${ruta.duration_in_minutes}</td>
+                            <td>${ruta.description}</td>
+                            <td>${ruta.status}</td>
                             <td class="text-center">
                                 <form action="ContRestaurar" method="post" style="display: inline;">
-                                    <input type="hidden" name="id" value="${ruta.id}">
-                                    <button type="submit" class="btn btn-success" onclick="mostrarAlerta()"">Restaurar</button>
+                                    <input type="hidden" name="route_id" value="${ruta.route_id}">
+                                    <button type="submit" class="btn btn-success" onclick="mostrarAlerta()">Restaurar</button>
                                 </form>
                             </td>
                         </tr>

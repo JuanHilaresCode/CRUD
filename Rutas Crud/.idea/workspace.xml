@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="CRUD_RUTAS:war" />
       <artifact name="CRUD_RUTAS:war exploded" />
     </artifacts-to-build>
   </component>
@@ -11,6 +12,25 @@
   <component name="ChangeListManager">
     <list default="true" id="4196f1c3-a66f-405b-8986-2b74b77a5beb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/connection/AccesoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/connection/AccesoDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/controller/RutasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/controller/RutasController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/dto/RutasDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/dto/RutasDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/service/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/service/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/service/RutasService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/service/RutasService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/JavaScript/crearRuta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/JavaScript/crearRuta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/JavaScript/editarRuta.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/JavaScript/editarRuta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/crearRuta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/crearRuta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/detalleRuta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/detalleRuta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editarRuta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editarRuta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/eliminados.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/eliminados.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/ruta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/ruta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/crearRuta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/crearRuta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/detalleRuta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/detalleRuta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/editarRuta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/editarRuta.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/eliminados.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/eliminados.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/ruta.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CRUD_RUTAS-1.0-SNAPSHOT/ruta.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +62,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Prueba.executor": "Run",
+    "Application.PruebaConexion.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat Server.Tomcat 9.0.89.executor": "Run",
     "git-widget-placeholder": "main",
@@ -56,7 +78,33 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.89">
+    <configuration name="Prueba" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pe.edu.vallegrande.crudweb.test.Prueba" />
+      <module name="CRUD_RUTAS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pe.edu.vallegrande.crudweb.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PruebaConexion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pe.edu.vallegrande.crudweb.test.PruebaConexion" />
+      <module name="CRUD_RUTAS" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pe.edu.vallegrande.crudweb.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Rutas_Crud" />
       <method v="2">
@@ -158,6 +206,12 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Prueba" />
+        <item itemvalue="Application.PruebaConexion" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -180,6 +234,8 @@
       <workItem from="1717171682424" duration="5180000" />
       <workItem from="1717179782304" duration="15000" />
       <workItem from="1717180206223" duration="604000" />
+      <workItem from="1717442962420" duration="847000" />
+      <workItem from="1717453833457" duration="5367000" />
     </task>
     <servers />
   </component>
@@ -196,5 +252,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pe/edu/vallegrande/crudweb/test/Prueba.java</url>
+          <line>7</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

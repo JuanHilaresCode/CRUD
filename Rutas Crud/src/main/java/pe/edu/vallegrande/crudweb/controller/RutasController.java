@@ -52,17 +52,17 @@ public class RutasController extends HttpServlet {
 
 
     private void getById(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int route_id = Integer.parseInt(req.getParameter("route_id"));
 
         RutasService service = new RutasService();
-        RutasDTO contacto = service.getById(id);
+        RutasDTO contacto = service.getById(route_id);
 
         if (contacto != null) {
             req.setAttribute("ruta", contacto);
             RequestDispatcher rd = req.getRequestDispatcher("detalleRuta.jsp");
             rd.forward(req, resp);
         } else {
-            String mensaje = "El contacto con ID " + id + " no fue encontrado";
+            String mensaje = "El contacto con ID " + route_id + " no fue encontrado";
             req.setAttribute("mensaje", mensaje);
             resp.sendRedirect(req.getContextPath() + "/index.jsp?mensaje=" + URLEncoder.encode(mensaje, "UTF-8"));
         }
@@ -88,27 +88,27 @@ public class RutasController extends HttpServlet {
     }
 
     private void contCreate(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String origen = req.getParameter("origen");
-        String destino = req.getParameter("destino");
-        String distancia = req.getParameter("distancia");
-        String duracion = req.getParameter("duracion");
-        String descripcion = req.getParameter("descripcion");
-        String estado = req.getParameter("estado");
-        if (origen != null && !origen.isEmpty() && destino != null && !destino.isEmpty() && distancia != null && !distancia.isEmpty()
-                && duracion != null && !duracion.isEmpty() && descripcion != null && !descripcion.isEmpty() && estado != null && !estado.isEmpty()) {
+        String origin = req.getParameter("origin");
+        String destination = req.getParameter("destination");
+        String distance = req.getParameter("distance");
+        String duration_in_minutes = req.getParameter("duration_in_minutes");
+        String description = req.getParameter("description");
+        String status = req.getParameter("status");
+        if (origin != null && !origin.isEmpty() && destination != null && !destination.isEmpty() && distance != null && !distance.isEmpty()
+                && duration_in_minutes != null && !duration_in_minutes.isEmpty() && description != null && !description.isEmpty() && status != null && !status.isEmpty()) {
             RutasDTO nuevoruta = new RutasDTO();
-            nuevoruta.setOrigen(origen);
-            nuevoruta.setDestino(destino);
-            nuevoruta.setDistancia(distancia);
-            nuevoruta.setDuracion(duracion);
-            nuevoruta.setDescripcion(descripcion);
-            nuevoruta.setEstado(estado);
+            nuevoruta.setOrigin(origin);
+            nuevoruta.setDestination(destination);
+            nuevoruta.setDistance(Double.parseDouble(distance));
+            nuevoruta.setDuration_in_minutes(Integer.parseInt(duration_in_minutes));
+            nuevoruta.setDescription(description);
+            nuevoruta.setStatus(status);
 
             RutasService service = new RutasService();
             int nuevorutaId = service.create(nuevoruta);
 
             if (nuevorutaId != 0) {
-                String redirectURL = req.getContextPath() + "/ContGetId?id=" + nuevorutaId;
+                String redirectURL = req.getContextPath() + "/ContGetId?route_id=" + nuevorutaId;
                 resp.sendRedirect(redirectURL);
             } else {
                 String mensaje = "Error al crear una nueva ruta";
@@ -123,28 +123,28 @@ public class RutasController extends HttpServlet {
     }
 
     private void contUpdate(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        int id = Integer.parseInt(req.getParameter("id"));
-        String origen = req.getParameter("origen");
-        String destino = req.getParameter("destino");
-        String distancia = req.getParameter("distancia");
-        String duracion = req.getParameter("duracion");
-        String descripcion = req.getParameter("descripcion");
-        String estado = req.getParameter("estado");
+        int route_id = Integer.parseInt(req.getParameter("route_id"));
+        String origin = req.getParameter("origin");
+        String destination = req.getParameter("destination");
+        String distance = req.getParameter("distance");
+        String duration_in_minutes = req.getParameter("duration_in_minutes");
+        String description = req.getParameter("description");
+        String status = req.getParameter("status");
 
         RutasService service = new RutasService();
-        RutasDTO ruta = service.getById(id);
+        RutasDTO ruta = service.getById(route_id);
 
         if (ruta != null) {
-            ruta.setOrigen(origen);
-            ruta.setDestino(destino);
-            ruta.setDistancia(distancia);
-            ruta.setDuracion(duracion);
-            ruta.setDescripcion(descripcion);
-            ruta.setEstado(estado);
+            ruta.setOrigin(origin);
+            ruta.setDestination(destination);
+            ruta.setDistance(Double.parseDouble(distance));
+            ruta.setDuration_in_minutes(Integer.parseInt(duration_in_minutes));
+            ruta.setDescription(description);
+            ruta.setStatus(status);
             service.update(ruta);
             resp.sendRedirect(req.getContextPath() + "/ContGetAll");
         } else {
-            String mensaje = "La Ruta con ID " + id + " no fue encontrada";
+            String mensaje = "La Ruta con ID " + route_id + " no fue encontrada";
             req.setAttribute("mensaje", mensaje);
             req.getRequestDispatcher("ruta.jsp").forward(req, resp);
         }
@@ -152,16 +152,16 @@ public class RutasController extends HttpServlet {
 
 
     private void contDelete(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int route_id = Integer.parseInt(req.getParameter("route_id"));
         RutasService service = new RutasService();
-        boolean eliminado = service.delete(id);
+        boolean eliminado = service.delete(route_id);
 
         if (eliminado) {
             String mensaje = "Ruta eliminada correctamente";
             req.setAttribute("mensaje", mensaje);
             resp.sendRedirect(req.getContextPath() + "/ContGetAll");
         } else {
-            String mensaje = "La Ruta con el ID " + id + " no fue encontrado";
+            String mensaje = "La Ruta con el ID " + route_id + " no fue encontrado";
             req.setAttribute("mensaje", mensaje);
             resp.sendRedirect(req.getContextPath() + "/index.jsp?mensaje=" + URLEncoder.encode(mensaje, "UTF-8"));
         }
@@ -169,25 +169,25 @@ public class RutasController extends HttpServlet {
 
 
     private void getEdit(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int route_id = Integer.parseInt(req.getParameter("route_id"));
         RutasService service = new RutasService();
-        RutasDTO ruta = service.getById(id);
+        RutasDTO ruta = service.getById(route_id);
 
         if (ruta != null) {
             req.setAttribute("ruta", ruta);
             RequestDispatcher rd = req.getRequestDispatcher("editarRuta.jsp");
             rd.forward(req, resp);
         } else {
-            String mensaje = "La ruta con ID " + id + " no fue encontrada";
+            String mensaje = "La ruta con ID " + route_id + " no fue encontrada";
             req.setAttribute("mensaje", mensaje);
             resp.sendRedirect(req.getContextPath() + "/index.jsp?mensaje=" + URLEncoder.encode(mensaje, "UTF-8"));
         }
     }
 
     private void restaurarRegistro(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        int id = Integer.parseInt(req.getParameter("id"));
+        int route_id = Integer.parseInt(req.getParameter("route_id"));
         RutasService service = new RutasService();
-        boolean restaurado = service.restaurar(id);
+        boolean restaurado = service.restaurar(route_id);
 
         if (restaurado) {
             String mensaje = "Registro restaurado correctamente";

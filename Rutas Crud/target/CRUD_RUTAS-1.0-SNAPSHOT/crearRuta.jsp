@@ -21,7 +21,7 @@
             <form action="ContCrear" method="post" id="formulariovalidacion">
                 <div class="form-group">
                     <label for="origenInput">Origen:</label>
-                    <select class="form-control" id="origenInput" type="text" name="origen" required>
+                    <select class="form-control" id="origenInput" type="text" name="origin" required>
                         <option>Cañete</option>
                         <option>Piura</option>
                         <option>Lunahuana</option>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label for="destinoInput">Destino:</label>
-                    <select class="form-control" type="text" id="destinoInput" name="destino" required>
+                    <select class="form-control" type="text" id="destinoInput" name="destination" required>
                         <option>Cañete</option>
                         <option>Piura</option>
                         <option>Lunahuana</option>
@@ -41,17 +41,17 @@
                 </div>
                 <div class="form-group">
                     <label for="distanciaInput">Distancia (km):</label>
-                    <input type="text" id="distanciaInput" name="distancia" class="form-control" pattern="\d+(\.\d+)?" title="Ingrese una distancia válida en km" required>
+                    <input type="text" id="distanciaInput" name="distance" class="form-control" pattern="\d+(\.\d+)?" title="Ingrese una distancia válida en km" required>
                 </div>
                 <div class="form-group">
-                    <label for="duracionInput">Duración (hrs):</label>
-                    <input type="text" id="duracionInput" name="duracion" class="form-control" pattern="\d+(\.\d+)?" title="Ingrese una duración válida en horas" required>
+                    <label for="duracionInput">Duración (En Minutos):</label>
+                    <input type="text" id="duracionInput" name="duration_in_minutes" class="form-control" pattern="\d+(\.\d+)?" title="Ingrese una duración válida en horas" required>
                 </div>
                 <div class="form-group">
                     <label for="descripcionInput">Descripción (OPCIONAL):</label>
-                    <input type="text" id="descripcionInput" name="descripcion" class="form-control">
+                    <input type="text" id="descripcionInput" name="description" class="form-control">
                 </div>
-                <input type="hidden" id="estadoInput" name="estado" value="1">
+                <input type="hidden" id="estadoInput" name="status" value="1">
                 <button type="submit" class="btn btn-primary">Crear</button>
                 <a href="ContGetAll" class="btn btn-danger">Volver</a>
             </form>

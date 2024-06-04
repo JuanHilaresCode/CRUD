@@ -16,18 +16,18 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "SELECT id,origen,destino,distancia,duracion,descripcion,estado FROM rutas WHERE estado='0'";
+            sql = "SELECT route_id,origin,destination,distance,duration_in_minutes,description,status FROM routes WHERE status='0'";
             pstm = cn.prepareStatement(sql);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 RutasDTO bean = new RutasDTO();
-                bean.setId(rs.getInt("id"));
-                bean.setOrigen(rs.getString("origen"));
-                bean.setDestino(rs.getString("destino"));
-                bean.setDistancia(rs.getString("distancia"));
-                bean.setDuracion(rs.getString("duracion"));
-                bean.setDescripcion(rs.getString("descripcion"));
-                bean.setEstado(String.valueOf(rs.getInt("estado")));
+                bean.setRoute_id(rs.getInt("Route_id"));
+                bean.setOrigin(rs.getString("Origin"));
+                bean.setDestination(rs.getString("Destination"));
+                bean.setDistance(Double.parseDouble(rs.getString("Distance")));
+                bean.setDuration_in_minutes(Integer.parseInt(rs.getString("Duration_in_minutes")));
+                bean.setDescription(rs.getString("Description"));
+                bean.setStatus(String.valueOf(rs.getInt("Status")));
                 eliminados.add(bean);
             }
         } catch (SQLException e) {
@@ -53,18 +53,18 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "SELECT id,origen,destino,distancia,duracion,descripcion,estado FROM rutas WHERE estado='1'";
+            sql = "SELECT route_id,origin,destination,distance,duration_in_minutes,description,status FROM routes WHERE status='1'";
             pstm = cn.prepareStatement(sql);
             rs = pstm.executeQuery();
             while (rs.next()) {
                 RutasDTO bean = new RutasDTO();
-                bean.setId(rs.getInt("id"));
-                bean.setOrigen(rs.getString("origen"));
-                bean.setDestino(rs.getString("destino"));
-                bean.setDistancia(rs.getString("distancia"));
-                bean.setDuracion(rs.getString("duracion"));
-                bean.setDescripcion(rs.getString("descripcion"));
-                bean.setEstado(String.valueOf(rs.getInt("estado")));
+                bean.setRoute_id(rs.getInt("Route_id"));
+                bean.setOrigin(rs.getString("Origin"));
+                bean.setDestination(rs.getString("Destination"));
+                bean.setDistance(Double.parseDouble(rs.getString("Distance")));
+                bean.setDuration_in_minutes(Integer.parseInt(rs.getString("Duration_in_minutes")));
+                bean.setDescription(rs.getString("Description"));
+                bean.setStatus(String.valueOf(rs.getInt("Status")));
                 lista.add(bean);
             }
         } catch (SQLException e) {
@@ -91,19 +91,19 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "SELECT id,origen,destino,distancia,duracion,descripcion,estado FROM rutas WHERE id = ?";
+            sql = "SELECT route_id,origin,destination,distance,duration_in_minutes,description,status FROM routes WHERE route_id = ?";
             pstm = cn.prepareStatement(sql);
             pstm.setInt(1, id);
             rs = pstm.executeQuery();
             if (rs.next()) {
                 bean = new RutasDTO();
-                bean.setId(rs.getInt("id"));
-                bean.setOrigen(rs.getString("origen"));
-                bean.setDestino(rs.getString("destino"));
-                bean.setDistancia(rs.getString("distancia"));
-                bean.setDuracion(rs.getString("duracion"));
-                bean.setDescripcion(rs.getString("descripcion"));
-                bean.setEstado("estado");
+                bean.setRoute_id(rs.getInt("Route_id"));
+                bean.setOrigin(rs.getString("Origin"));
+                bean.setDestination(rs.getString("Destination"));
+                bean.setDistance(Double.parseDouble(rs.getString("Distance")));
+                bean.setDuration_in_minutes(Integer.parseInt(rs.getString("Duration_in_minutes")));
+                bean.setDescription(rs.getString("Description"));
+                bean.setStatus("Status");
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -128,14 +128,14 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "INSERT INTO rutas(origen, destino, distancia, duracion, descripcion, estado) VALUES(?,?,?,?,?,?)";
+            sql = "INSERT INTO routes(origin, destination, distance, duration_in_minutes, description, status) VALUES(?,?,?,?,?,?)";
             pstm = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            pstm.setString(1, bean.getOrigen());
-            pstm.setString(2, bean.getDestino());
-            pstm.setString(3, bean.getDistancia());
-            pstm.setString(4, bean.getDuracion());
-            pstm.setString(5, bean.getDescripcion());
-            pstm.setString(6, bean.getEstado());
+            pstm.setString(1, bean.getOrigin());
+            pstm.setString(2, bean.getDestination());
+            pstm.setString(3, String.valueOf(bean.getDistance()));
+            pstm.setString(4, String.valueOf(bean.getDuration_in_minutes()));
+            pstm.setString(5, bean.getDescription());
+            pstm.setString(6, bean.getStatus());
             pstm.executeUpdate();
             rs = pstm.getGeneratedKeys();
             if (rs.next()) {
@@ -162,14 +162,14 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "UPDATE rutas SET origen = ?, destino = ?, distancia = ?, duracion = ?, descripcion = ? WHERE id = ?";
+            sql = "UPDATE routes SET origin = ?, destination = ?, distance = ?, duration_in_minutes = ?, description = ? WHERE route_id = ?";
             pstm = cn.prepareStatement(sql);
-            pstm.setString(1, bean.getOrigen());
-            pstm.setString(2, bean.getDestino());
-            pstm.setString(3, bean.getDistancia());
-            pstm.setString(4, bean.getDuracion());
-            pstm.setString(5, bean.getDescripcion());
-            pstm.setInt(6, bean.getId());
+            pstm.setString(1, bean.getOrigin());
+            pstm.setString(2, bean.getDestination());
+            pstm.setString(3, String.valueOf(bean.getDistance()));
+            pstm.setString(4, String.valueOf(bean.getDuration_in_minutes()));
+            pstm.setString(5, bean.getDescription());
+            pstm.setInt(6, bean.getRoute_id());
             int rowsAffected = pstm.executeUpdate();
             if (rowsAffected == 0) {
                 bean = null;
@@ -193,7 +193,7 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "UPDATE rutas SET estado = '0' WHERE id = ?";
+            sql = "UPDATE routes SET status = '0' WHERE route_id = ?";
             pstm = cn.prepareStatement(sql);
             pstm.setInt(1, id);
             int rowsAffected = pstm.executeUpdate();
@@ -219,7 +219,7 @@ public class RutasService {
 
         try {
             cn = AccesoDB.getConnection();
-            sql = "UPDATE rutas SET estado = '1' WHERE id = ?";
+            sql = "UPDATE routes SET status = '1' WHERE route_id = ?";
             pstm = cn.prepareStatement(sql);
             pstm.setInt(1, id);
             int rowsAffected = pstm.executeUpdate();

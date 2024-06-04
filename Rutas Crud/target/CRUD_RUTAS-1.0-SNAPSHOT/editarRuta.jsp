@@ -23,21 +23,21 @@
                     <div class="form-group col-md-6">
                         <label for="origenInput">Origen:</label>
                         <select class="form-control border border-4" id="origenInput" type="text" name="origen" required>
-                            <option ${ruta.origen eq 'Cañete' ? 'selected' : ''}>Cañete</option>
-                            <option ${ruta.origen eq 'Piura' ? 'selected' : ''}>Piura</option>
-                            <option ${ruta.origen eq 'Lunahuana' ? 'selected' : ''}>Lunahuana</option>
-                            <option ${ruta.origen eq 'San Luis' ? 'selected' : ''}>San Luis</option>
-                            <option ${ruta.origen eq 'Lima' ? 'selected' : ''}>Lima</option>
+                            <option ${ruta.origin eq 'Cañete' ? 'selected' : ''}>Cañete</option>
+                            <option ${ruta.origin eq 'Piura' ? 'selected' : ''}>Piura</option>
+                            <option ${ruta.origin eq 'Lunahuana' ? 'selected' : ''}>Lunahuana</option>
+                            <option ${ruta.origin eq 'San Luis' ? 'selected' : ''}>San Luis</option>
+                            <option ${ruta.origin eq 'Lima' ? 'selected' : ''}>Lima</option>
                         </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="destinoInput">Destino:</label>
                         <select class="form-control border border-4" id="destinoInput" type="text" name="destino" required>
-                            <option ${ruta.destino eq 'Cañete' ? 'selected' : ''}>Cañete</option>
-                            <option ${ruta.destino eq 'Piura' ? 'selected' : ''}>Piura</option>
-                            <option ${ruta.destino eq 'Lunahuana' ? 'selected' : ''}>Lunahuana</option>
-                            <option ${ruta.destino eq 'San Luis' ? 'selected' : ''}>San Luis</option>
-                            <option ${ruta.destino eq 'Lima' ? 'selected' : ''}>Lima</option>
+                            <option ${ruta.destination eq 'Cañete' ? 'selected' : ''}>Cañete</option>
+                            <option ${ruta.destination eq 'Piura' ? 'selected' : ''}>Piura</option>
+                            <option ${ruta.destination eq 'Lunahuana' ? 'selected' : ''}>Lunahuana</option>
+                            <option ${ruta.destination eq 'San Luis' ? 'selected' : ''}>San Luis</option>
+                            <option ${ruta.destination eq 'Lima' ? 'selected' : ''}>Lima</option>
                         </select>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <input type="text" id="distanciaInput" name="distancia" class="form-control border border-4" value="${ruta.distancia}" pattern="\d+(\.\d+)?" title="Ingrese una distancia válida en km" required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="duracionInput">Duracion (hrs):</label>
+                        <label for="duracionInput">Duracion (En Minutos):</label>
                         <input type="text" id="duracionInput" name="duracion" class="form-control border border-4" value="${ruta.duracion}" pattern="\d+(\.\d+)?" title="Ingrese una duración válida en horas" required>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <input type="text" id="descripcionInput" name="descripcion" class="form-control border border-4" value="${ruta.descripcion}">
                     </div>
                 </div>
-                <input type="hidden" name="id" value="${ruta.id}">
+                <input type="hidden" name="id" value="${ruta.route_id}">
                 <button type="submit" class="btn btn-primary">Actualizar</button>
                 <a href="ContGetAll" class="btn btn-danger">Volver</a>
             </form>

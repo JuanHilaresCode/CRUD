@@ -29,17 +29,17 @@
                     <tbody>
                     <c:forEach items="${lista}" var="ruta">
                         <tr>
-                            <td>${ruta.id}</td>
-                            <td>${ruta.origen}</td>
-                            <td>${ruta.destino}</td>
-                            <td>${ruta.distancia}</td>
-                            <td>${ruta.duracion}</td>
-                            <td>${ruta.descripcion}</td>
-                            <td>${ruta.estado}</td>
+                            <td>${ruta.route_id}</td>
+                            <td>${ruta.origin}</td>
+                            <td>${ruta.destination}</td>
+                            <td>${ruta.distance}</td>
+                            <td>${ruta.duration_in_minutes}</td>
+                            <td>${ruta.description}</td>
+                            <td>${ruta.status}</td>
                             <td class="text-center">
-                                <a href="ContEditar?id=${ruta.id}" class="btn btn-primary">Actualizar</a>
+                                <a href="ContEditar?id=${ruta.route_id}" class="btn btn-primary">Actualizar</a>
                                 <form action="ContBorrar" method="post" style="display: inline;" onsubmit="mostrarAlerta()">
-                                    <input type="hidden" name="id" value="${ruta.id}">
+                                    <input type="hidden" name="id" value="${ruta.route_id}">
                                     <button type="submit" class="btn btn-danger">Eliminar</button>
                                 </form>
 

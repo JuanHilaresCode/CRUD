@@ -1,4 +1,4 @@
-// Función para rellenar automáticamente si la descripcion esta vacia
+// Función para rellenar automáticamente si la description esta vacia
 function validarDescripcion() {
     var descripcionInput = document.getElementById("descripcionInput");
     if (descripcionInput.value.trim() === "") {
@@ -7,7 +7,7 @@ function validarDescripcion() {
 }
 document.querySelector("form").addEventListener("submit", validarDescripcion);
 
-// Funcion para validar la descripcion
+// Funcion para validar la description
 document.getElementById("descripcionInput").addEventListener("input", function() {
     var descripcionInput = document.getElementById("descripcionInput").value;
     var descripcionPattern = /^[A-Za-z\sáéíóúÁÉÍÓÚñÑ.,:;"'()\-]+$/;
@@ -17,13 +17,13 @@ document.getElementById("descripcionInput").addEventListener("input", function()
     }
 });
 
-// Funcion para evitar que origen y destino no sean iguales
+// Funcion para evitar que origin y destination no sean iguales
 document.getElementById("formulariovalidacion").onsubmit = function() {
     var origen = document.getElementById("origenInput").value;
     var destino = document.getElementById("destinoInput").value;
 
     if (origen === destino) {
-        alert("El origen y el destino no pueden ser iguales.");
+        alert("El origin y el destination no pueden ser iguales.");
         return false; // Evita que el formulario se envíe
     }
 };

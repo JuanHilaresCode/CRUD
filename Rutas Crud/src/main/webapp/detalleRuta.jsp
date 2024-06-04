@@ -18,18 +18,19 @@
                     <th>ORIGEN</th>
                     <th>DESTINO</th>
                     <th>DISTANCIA (KM)</th>
-                    <th>DURACION (HRS)</th>
+                    <th>DURACION (En Minutos)</th>
                     <th>DESCRIPCION</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>${ruta.id}</td>
-                    <td>${ruta.origen}</td>
-                    <td>${ruta.destino}</td>
-                    <td>${ruta.distancia}</td>
-                    <td>${ruta.duracion}</td>
-                    <td>${ruta.descripcion}</td>
+                    <td>${ruta.route_id}</td>
+                    <td>${ruta.origin}</td>
+                    <td>${ruta.destination}</td>
+                    <td>${ruta.distance}</td>
+                    <td>${ruta.duration_in_minutes}</td>
+                    <td>${ruta.description}</td>
+                    <td>${ruta.status}</td>
                 </tr>
                 </tbody>
             </table>
